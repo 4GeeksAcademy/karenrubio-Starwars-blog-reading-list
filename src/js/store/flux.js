@@ -12,18 +12,49 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			characthers:[],
+			characthersLiked:[],
+			planets:[],
+			planetsLiked:[]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+
+			favoriteLiked: (charactherName) => {
+				const store = getStore();  
+
+				if(store.characthersLiked.includes(charactherName)){
+					setStore({characthersLiked: store.characthersLiked.filter((elemento) => elemento != charactherName)})
+
+				}else
+				setStore({characthersLiked: [...store.characthersLiked,charactherName]})
+			},
+
+			deleteFavorite: (charactherName) => {
+				const store = getStore();  
+	
+					setStore({characthersLiked: store.characthersLiked.filter((elemento) => elemento != charactherName)})
+
+			},
+
 			loadSomeData: () => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
+				fetch('https://swapi.dev/api/people')
+				.then((response)=> response.json())
+				.then((data)=> setStore({ characthers: data.results }))
+
+				fetch('https://swapi.dev/api/planets')
+				.then((response)=> response.json())
+				.then((data)=> setStore({ planets: data.results }))
+
 			},
+			
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -39,7 +70,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			}
 		}
-	};
+	}
 };
+
 
 export default getState;
