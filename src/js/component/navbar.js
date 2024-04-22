@@ -35,7 +35,7 @@ export const Navbar = (props) => {
  						 </button>
  						 <ul className="dropdown-menu">
   						    <li><a className="dropdown-item" href="#"></a></li>
-							  {store.characthersLiked.map((elemento,index)=> <li key={index}><a className="dropdown-item" href="#"><div className="d-flex justify-content-between m-2 " ><p >{elemento}</p><i onClick={()=>actions.deleteFavorite(elemento)} className="bi bi-trash3-fill" ></i></div></a></li>)}
+							{store.characthersLiked.length === 0 ? <li><p>Empty</p></li> : store.characthersLiked.map((elemento,index)=> <li key={index}><a className="dropdown-item" href="#"><div className="d-flex justify-content-between m-2 " ><p >{elemento}</p><i onClick={()=>actions.deleteFavorite(elemento)} className="bi bi-trash3-fill" ></i></div></a></li>)}
 							
  						 </ul>
 					</div>

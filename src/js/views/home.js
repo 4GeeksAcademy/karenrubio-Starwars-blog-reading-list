@@ -19,14 +19,14 @@ export const Home = () => {
         <h2 className="mx-5 text-danger">Characthers</h2>
         <div className="row flex-row flex-nowrap " style={{overflowX:'auto'}}>
           
-          {store.characthers.map((characther)=> <CharactherCard uid={characther.url.replace('https://swapi.dev/api/people/','').replace('/ ','')} key={characther.url} name={characther.name} hairColor={characther.hair_color} gender={characther.gender} eye_color={characther.eye_color} /> )}
+          {store.characthers.map((characther)=> <CharactherCard uid={characther.url.replace('https://swapi.info/api/people/','').replace('/ ','')} key={characther.url} name={characther.name} hairColor={characther.hair_color} gender={characther.gender} eye_color={characther.eye_color} /> )}
         </div>
       </div>
       <div className="mt-5">
         <h2 className="mx-5 text-danger">Planets</h2>
         <div className="row flex-row flex-nowrap " style={{overflowX:'auto'}}>
           
-          {store.planets.map((planet)=> <PlanetCard uid={planet.url.replace('https://swapi.dev/api/planets/','').replace('/ ','')} key={planet.url} name={planet.name} population={planet.population} terrain={planet.terrain} /> )}
+          {store.planets.map((planet)=> <PlanetCard uid={planet.url.replace('https://swapi.info/api/planets/','').replace('/ ','')} key={planet.url} name={planet.name} population={planet.population} terrain={planet.terrain} /> )}
         </div>
       </div>
       

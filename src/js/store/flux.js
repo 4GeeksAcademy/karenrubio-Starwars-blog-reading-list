@@ -45,13 +45,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
-				fetch('https://swapi.dev/api/people')
+				fetch('https://swapi.info/api/people')
 				.then((response)=> response.json())
-				.then((data)=> setStore({ characthers: data.results }))
+				.then((data)=> setStore({ characthers: data }))
 
-				fetch('https://swapi.dev/api/planets')
+				fetch('https://swapi.info/api/planets')
 				.then((response)=> response.json())
-				.then((data)=> setStore({ planets: data.results }))
+				.then((data)=> setStore({ planets: data }))
 
 			},
 			
