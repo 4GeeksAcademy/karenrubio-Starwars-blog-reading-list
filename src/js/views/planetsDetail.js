@@ -13,7 +13,7 @@ export const PlanetsDetail = props => {
 
    useEffect(()=>{
          
-        fetch('https://swapi.info/api/planets' + params.planet_uid)
+        fetch('https://swapi.info/api/planets/' + params.planet_uid)
         .then((response)=> response.json())
         .then((data)=> setPlanetDetails(data))
 
